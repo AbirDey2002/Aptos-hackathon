@@ -2,10 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    appDir: true, // Ensures App Router is enabled
+    // @ts-ignore: 'appDir' is not part of ExperimentalConfig but is needed to enable the App Router.
+    appDir: true,
   },
   reactStrictMode: true,
-  trailingSlash: false, // Make sure URLs are correctly routed
+  trailingSlash: false,
 };
 
 export default nextConfig;
