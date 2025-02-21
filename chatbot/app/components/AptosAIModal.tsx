@@ -1,4 +1,3 @@
-// Start of Selection
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -89,12 +88,14 @@ export default function AptosAIModal({ isOpen, onClose }: AptosAIModalProps) {
       const assistantMessage: Message = {
         role: 'assistant',
         content: markdownContent,
-        urls: data.response.scraped_urls && data.response.scraped_urls.length > 0 ? data.response.scraped_urls : undefined,
+        urls: data.response.scraped_urls && data.response.scraped_urls.length > 0
+          ? data.response.scraped_urls
+          : undefined,
       };
 
       console.log('Final assistant message:', assistantMessage);
       setMessages(prev => [...prev, assistantMessage]);
-    } catch (_error) {
+    } catch {
       setMessages(prev => [
         ...prev,
         {
@@ -239,4 +240,3 @@ export default function AptosAIModal({ isOpen, onClose }: AptosAIModalProps) {
     </div>
   );
 }
-// End of Selectio
